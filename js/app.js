@@ -6,6 +6,7 @@ const cityCard = document.querySelector('[data-js="city-card"]')
 let timeImg = document.querySelector('[data-js="time"]')
 const timeIconContainer = document.querySelector('[data-js="time-icon"]')
 
+
 cityForm.addEventListener('submit', async event => {
    event.preventDefault()
 
@@ -19,11 +20,8 @@ cityForm.addEventListener('submit', async event => {
       cityCard.classList.remove('d-none')
    }
 
-   if (IsDayTime) {
-      timeImg.src = './src/day.svg'
-   } else {
-      timeImg.src = './src/night.svg'
-   }
+   IsDayTime ? timeImg.src = './src/day.svg' : timeImg.src = './src/night.svg'
+
 
    timeIconContainer.innerHTML = timeIcon
 
