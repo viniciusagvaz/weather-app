@@ -23,3 +23,5 @@ const fetchData = async (url) => {
 
 const getCityData = (cityName) => fetchData(getCityUrl(cityName));
 const getCityWeather = (cityKey) => fetchData(getWheatherUrl(cityKey));
+
+console.log(getCityData('São Paulo'))

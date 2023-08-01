@@ -1,5 +1,6 @@
 const cityForm = document.querySelector('[data-js="change-location"]');
 const cityNameContainer = document.querySelector('[data-js="city-name"]');
+const countryNameContainer = document.querySelector('[data-js="country-name"]')
 const cityWeatherContainer = document.querySelector('[data-js="city-weather"]');
 const cityTemperatureContainer = document.querySelector('[data-js="city-temperature"]');
 const cityCard = document.querySelector('[data-js="city-card"]');
@@ -13,15 +14,17 @@ const showCard = () => {
 };
 
 const showCityWeatherInfo = async (cityName) => {
-	const [{ Key, LocalizedName }] = await getCityData(cityName);
-	const [{ WeatherText, Temperature, IsDayTime, WeatherIcon }] = await getCityWeather(Key);
-	const timeIcon = `<img src="./src/icons/${WeatherIcon}.svg">`;
+	const [{ Key, LocalizedName, AdministrativeArea,
+   Country}] = await getCityData(cityName);
+	const [{  WeatherText, Temperature, IsDayTime, WeatherIcon }] = await getCityWeather(Key);
+	const timeIcon = `<img class="icon" src="./src/icons/${WeatherIcon}.svg">`;
 
 	timeImg.src = IsDayTime ? "./src/day.svg" : "./src/night.svg";
 	timeIconContainer.innerHTML = timeIcon;
-	cityNameContainer.textContent = LocalizedName;
+	cityNameContainer.textContent = `${LocalizedName}, ${AdministrativeArea.ID}`;
+   countryNameContainer.textContent = `${Country.LocalizedName}`
 	cityWeatherContainer.textContent = WeatherText;
-	cityTemperatureContainer.textContent = Temperature.Metric.Value;
+	cityTemperatureContainer.textContent = Temperature.Metric.Value.toFixed(0);
 };
 
 cityForm.addEventListener("submit", (event) => {
