@@ -41,6 +41,10 @@ input:hover{
    opacity: 0.95;
 }
 
+.night-icon {
+   filter: invert(7%) sepia(35%) saturate(2390%) hue-rotate(190deg) brightness(101%) contrast(97%);
+}
+
 .time-icon {
    position: relative;
    top: -50px;

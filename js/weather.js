@@ -1,4 +1,4 @@
-const APIkey = `d4TbGErHI9aKdvweqXK0KCRextCtuqDh`;
+const APIkey = `YJZoshry97akAGCruOWwohJd04cgwcPE`;
 const baseUrl = `https://dataservice.accuweather.com/`;
 
 const getCityUrl = (cityName) =>
@@ -23,3 +23,5 @@ const fetchData = async (url) => {
 
 const getCityData = (cityName) => fetchData(getCityUrl(cityName));
 const getCityWeather = (cityKey) => fetchData(getWheatherUrl(cityKey));
+
+console.log(getCityData('São Paulo'))
