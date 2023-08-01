@@ -21,8 +21,7 @@ const showCityWeatherInfo = async (cityName) => {
 
    timeImg.src = IsDayTime ? "./src/day.svg" : "./src/night.svg";
    timeIconContainer.innerHTML = timeIcon;
-   cityNameContainer.textContent = `${LocalizedName} - ${AdministrativeArea
-      .ID}`;
+   cityNameContainer.textContent = `${LocalizedName} - ${AdministrativeArea.ID}`;
    countryNameContainer.textContent = `${Country.LocalizedName}`
    cityWeatherContainer.textContent = WeatherText;
    cityTemperatureContainer.textContent = Temperature.Metric.Value.toFixed(0);
