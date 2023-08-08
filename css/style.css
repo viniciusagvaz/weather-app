@@ -5,16 +5,16 @@
 }
 
 body {
-  background: var(--color-dark);
+   background: var(--color-dark);
 }
 
 .container {
-  max-width: 400px;
+   max-width: 400px;
 }
 
 h1 {
    color: var(--color-md-green);
-  font-size: 2.2rem;
+   font-size: 2.2rem;
 }
 
 label {
@@ -34,10 +34,10 @@ input {
    background-clip: padding-box;
    border: none;
    border-radius: .25rem;
-   transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out
+   transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out
 }
 
-input:hover{
+input:hover {
    opacity: 0.95;
 }
 
@@ -51,12 +51,6 @@ input:hover{
    width: 100px;
    margin-bottom: -50px;
    border-radius: 50%;
-   background: var(--color-lg-green);
-}
-
-.time-icon img{
-   border-radius: 50%;
-   background: var(--color-lg-green);
 }
 
 .country {
