@@ -4,7 +4,7 @@ const countryNameContainer = document.querySelector('[data-js="country-name"]');
 const cityWeatherContainer = document.querySelector('[data-js="city-weather"]');
 const cityTemperatureContainer = document.querySelector('[data-js="city-temperature"]');
 const cityCard = document.querySelector('[data-js="city-card"]');
-let timeImg = document.querySelector('[data-js="time"]');
+const timeImg = document.querySelector('[data-js="time"]');
 const timeIconContainer = document.querySelector('[data-js="time-icon"]');
 
 const showCard = () => {
@@ -25,21 +25,12 @@ const showCityWeatherInfo = async (cityName) => {
 	cityWeatherContainer.textContent = WeatherText;
 	cityTemperatureContainer.textContent = Temperature.Metric.Value.toFixed(0);
 
-	Storage.set(cityName);
+   showCard();
 };
-
-cityForm.addEventListener("submit", (event) => {
-	event.preventDefault();
-	const inputValue = event.target.city.value;
-
-	showCard();
-	showCityWeatherInfo(inputValue);
-	cityForm.reset();
-});
 
 const Storage = {
 	get() {
-		return JSON.parse(localStorage.getItem("city")) || '';
+		return JSON.parse(localStorage.getItem("city")) || "";
 	},
 
 	set(cityName) {
@@ -47,11 +38,21 @@ const Storage = {
 	},
 };
 
-window.addEventListener("load", () => {
-   let storagedCity = Storage.get()
+cityForm.addEventListener("submit", (event) => {
+	event.preventDefault();
+	const inputValue = event.target.city.value;
 
-   if(storagedCity) {
-      showCard()
-      showCityWeatherInfo(Storage.get());
-   }
+
+	showCityWeatherInfo(inputValue);
+	Storage.set(inputValue);
+	cityForm.reset();
+});
+
+
+window.addEventListener("load", () => {
+	const storagedCity = Storage.get();
+
+	if (storagedCity) {
+		showCityWeatherInfo(Storage.get());
+	}
 });
